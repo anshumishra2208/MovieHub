@@ -35,6 +35,8 @@ function displayMovies(data) {
     movieList.innerHTML = ""
     data.forEach((movie)=>{
         let div = document.createElement("div");
+        div.className = "movieCard";
+        div.dataset.id = movie.imdbID
     div.innerHTML = `
     <div>
             <img src=${movie.Poster} alt="">
@@ -48,3 +50,11 @@ function displayMovies(data) {
     movieList.append(div) 
     })   
 }
+
+
+movieList.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    let id = e.target.closest(".movieCard").dataset.id;
+    location.href = `movieDetails.html?id=${id}`
+    console.log(id);
+})
