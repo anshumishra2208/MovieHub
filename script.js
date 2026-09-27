@@ -16,7 +16,7 @@ form.addEventListener("submit", (e) => {
 
 async function searchMovie(movieName) {
     movieList.innerHTML = "Movie is getting searched..."
-    const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=939e3f3e&s=${movieName}`)
+    const response = await fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=939e3f3e&s=${encodeURIComponent(movieName)}`)
     const data = await response.json()
     console.log(data);
     if (data.Response==="True") {

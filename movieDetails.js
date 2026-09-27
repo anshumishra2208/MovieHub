@@ -6,7 +6,7 @@ console.log(id);
 searchMovies(id);
 
 async function searchMovies(id) {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=939e3f3e&i=${id}&plot=full`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=939e3f3e&i=${id}&plot=full`)
     const data = await response.json()
     if(data.Response==="True"){
         displayDetails(data)
